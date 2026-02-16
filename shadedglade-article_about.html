@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <!--Header for article page-->
+    <head>
+        
+        <!--Preconnect for fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+        <!--End for fonts -->
+
+        <style>
+            /*Css for header*/
+            header{
+                position:fixed; top:0; left:0;justify-content:space-between;
+                z-index:10;
+                display:flex;
+                align-items:center; width: 100%;padding: 0px;
+                font-family: "Kiwi Maru", serif;
+                padding:0 16px;
+                background:linear-gradient(rgba(255, 255, 255, 0.533),#0000);
+            }
+            header .logo{
+                font-size: 3rem; 
+                font-weight:700;
+                padding:16px 16px;
+            }
+
+            .header-inner{
+                position:fixed; top:0; left:0; right:0;
+                height: 108px;
+                transition:transform .2s ease, opacity .2s ease;
+                background: #fff;
+            }
+
+            .reading .header-inner{
+                transform:translateY(-108px);
+                /* opacity:0; */
+                pointer-events:none;
+            }
+
+            /*Css for mobile navigation*/
+            .menu{
+                position:fixed; 
+                top:32px; right:32px;
+                background:none; 
+                border:0;
+                font-size: 2.4rem; 
+                cursor:pointer;
+            }
+
+            .drawer{
+                position:fixed; top:0; right:0;
+                width:200px; height:100vh;
+                background:#fff;
+                padding:60px 32px;
+
+                transform:translateX(100%);
+                transition:transform 0.3s ease;
+            }
+
+            .nav-open .drawer{
+                transform:translateX(0);
+            }
+            .drawer .close{
+                position:fixed; top:16px; right:16px;
+                background:none; 
+                border:0;
+                font:600 32px/1 system-ui;
+                cursor:pointer;
+            }
+
+            .drawer a{
+                display:block;
+                margin-bottom:20px;
+                font-size: 1.5rem; 
+                color:#000;
+                text-decoration:none;
+            }
+            /*end for Css for mobile navigation*/
+
+            /*Css for band*/
+            .band{
+                position:fixed; left:0; right:0; top:108px;   /* ←上のボタン類の下に置く */
+                height:40px;
+                font:400 24px/48px system-ui;
+                background:#cc4408;
+                border-top:1px solid #eee;
+                border-bottom:1px solid #eee;
+                display:flex; align-items:center;
+                padding:0 12px;
+                z-index:900;
+            }
+            
+            .band span{
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                color:#fff;
+                padding: 0 16px;
+            }
+
+            .nav-open .band{
+                display:none;
+            }
+            /*end for Css for band*/
+
+            /*end for Css for header*/
+
+            /* css for body*/
+            /*Css for article page*/
+            :root{
+                --footer:48px; /*フッターの高さ*/
+            }
+            .article{
+                /* min-height:100vh; */
+                /* padding:0;  PC：下に余白を作る */
+                padding-top: 160px;
+                padding-bottom: 48px;
+                margin:0 auto;
+                width:100%;
+                max-width: 50vw;
+                transition:transform .3s ease;
+                color:#494949;
+                font-size: 1.2rem; line-height:2.5;
+            }
+
+            @media (min-width: 768px) {
+                .article{
+                    width:80vw;              
+                    /* PC：自動 */
+                }
+            }
+
+            .nav-open .article{
+                transform:translateX(-18vw) /*autoを使うときちんと動作しないので、固定値で対応*/
+            }
+
+            .footer{
+                position:fixed; left:0; right:0; bottom: 0;  
+                height:48px;
+                font:400 24px/48px system-ui;
+                background:#cc4408;
+                border-top:1px solid #eee;
+                transform:translateY(100%);
+                transition:transform .2s ease;
+                padding:0 12px;
+                z-index:1000;
+            }
+            .footer nav a{
+                margin-right:16px;
+                font:500 14px/1 system-ui;
+                color:#111;
+                text-decoration: none;
+            }
+
+            .show-footer .footer{
+                transform:translateY(0);
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--Header for article page-->
+        <header class="header">
+            <div class="header-inner">
+                <!--Logo that links to homepage-->
+                <a class="logo" href="C:\Users\orang\Desktop\Web_design\HomePage.html">木陰の庭</a>
+                <!--end for Logo-->
+
+                <!--Menu button for mobile navigation-->
+                <button class="menu">☰</button>
+                    <nav class="drawer" id="drawer">
+                        <button class="close" aria-label="close menu">✕</button>
+                        <a href="C:\Users\orang\Desktop\Web_design\articlePageTop.html">記事はこちら。</a>
+                        <a href="#">概要</a>
+                        <a href="#">Archive</a>
+                        <a href="#">ポートフォリオ</a>
+                    </nav>
+                <!--end for mobile navigation-->
+
+                <!--Band for article title-->
+                <div class="band"><span>【概要】木陰の庭について</span></div>
+                <!--end for band-->
+            </div>
+
+        </header>
+        <!--end for Header-->
+
+        <!--Main content for article page-->
+        <main class="article">
+            このブログは怠け者や行動することがめんどくさい人間が全力でサボるためのブログである。怠け者といって想起するのは課題をサボって物語を消費する人とか、休日に何にもしないで寝たまま過ごす人々のことだ。今日も今日とてインターンの応募をしなきゃいけなかった。課題をやるべきだった。何なら遊べばよかった。誰かと会えばよかった。でもしなかった。部屋にこもってぬーんと過ごした。
+            このような無を僕は毛嫌いしていた。未来に対して投資をするか、限りあるモラトリアムを無駄にしないように、何か活動したい。暇と退屈は意味があることをして殺さなきゃいけない。そう思っていた。
+            <br><br>
+            しかし意外とそうではないのかもしれない。無駄なこと、世界ができるだけ避けている、やらないほうがいい行為。そしてその最大悪とされる「なにもしないこと」は、ようするに無であり中心性がない行為は、もしかしたら価値があるのかもしれない。
+            <br><br>
+            きっかけはアートや文学、テクストに触れ始めたことだ。現代アートやモダン文学では、作者自身ですら、彼らが作った作品の文脈のすべてを知らない。それゆえに、読み手が作品を思考するとき、その文脈はまたどこか、読み手の経験によって異なり、その主観は社会の一面を表現する。主観は決して交わらず、主観を用いる時人々は他者と異ならざるを得ない。それが生む分断を人類はもうすでに知っている。よって新規性がなく、アートや作品として創始する必要はない。むしろ意味を持っている作品を作り出せば、それが無意識の産物であったとしても、対立という無より価値が低いものを生み出す。よって、現代アートは意味がないことを目指す。記号論やその他もろもろのメタ言語の障壁を乗り越えて生まれる何も意味持たない作品のみが人々の間に不可思議・無意味という共通の認識を生み入るからである。
+            <br><br>
+            そう、アートの世界では、僕が毛嫌いする無を全力で目指しているのだ。なので僕も目指してみたいと思う。このウェブサイトで意味がある活動はきっとこの文章だけだろう。むしろこの文章も無意味であればうれしいのだけれど。そんな感じの活動意思なので、木陰でスーッと深呼吸する気持ちでこの庭に遊びに来てくれたら、私はうれしい。
+            <br>
+            —   
+            <br>    
+            <h3>「木陰の庭」</h3>
+            <hr>  
+        </main>
+        <!--end for Main content-->
+
+        <!--Footer content -->
+        <footer class ="footer">
+            <nav>
+                <a href="C:\Users\orang\Desktop\Web_design\articlePageTop.html">記事</a>
+                <a href="#">概要</a>
+                <a href="#">Archives</a>
+                <a href="#">ポートフォリオ</a>
+            </nav>
+        </footer>
+        <!--end for Footer content -->
+        <script>
+            /*JavaScript for mobile navigation*/
+
+            /*calling elements*/
+            const btn = document.querySelector('.menu');
+            const drawer = document.getElementById('drawer');
+            const closeBtn = document.querySelector('.drawer .close');
+
+            /* scroll position variable*/
+            let last = 0;
+            /*end for calling elements*/
+
+            /*functions to open and close drawer*/
+            function openDrawer(){
+                document.body.classList.add('nav-open');
+            }
+
+            function closeDrawer(){
+                document.body.classList.remove('nav-open');
+            }
+            /*end for functions to open and close drawer*/
+
+            /*event listeners for buttons*/
+
+            btn.onclick = () => {
+                document.body.classList.contains('nav-open') ? closeDrawer() : openDrawer();
+                closeBtn.onclick = closeDrawer;
+            };
+
+            closeBtn.onclick = () => {
+                closeDrawer();
+            };
+            /*end for event listeners for buttons*/
+
+
+            /* scroll event to hide header on scroll down*/
+            window.addEventListener('scroll', ()=>{
+                const y = window.scrollY;
+
+                if (y < 20){
+                    document.body.classList.remove('reading');
+                    last = y;
+                    return;
+                }
+
+                if (y > last + 4){
+                    document.body.classList.add('reading');
+                }
+
+                if (y < last - 4){
+                    document.body.classList.remove('reading');
+                    closeDrawer();
+                }
+
+                last = y;
+            }, {passive:true});
+            /* end for JavaScript for mobile navigation*/
+
+
+            /* JavaScript to show footer on scroll to bottom*/
+            window.addEventListener('scroll', ()=>{
+                const y = window.scrollY;
+                const h = window.innerHeight;
+                const doc = document.documentElement.scrollHeight;
+
+                if (y + h >= doc - 2){
+                    document.body.classList.add('show-footer');
+                } else {
+                    document.body.classList.remove('show-footer');
+                }
+            
+            }, {passive:true});
+        </script>
+    </body>
+</html>
