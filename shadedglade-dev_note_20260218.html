@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+    <!--Header for article page-->
+    <head>
+        
+        <!--Preconnect for fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+        <!--End for fonts -->
+
+        <style>
+            /*Css for header*/
+            header{
+                position:fixed; top:0; left:0;justify-content:space-between;
+                z-index:10;
+                display:flex;
+                align-items:center; width: 100%;padding: 0px;
+                font-family: "Kiwi Maru", serif;
+                padding:0 16px;
+                background:linear-gradient(rgba(255, 255, 255, 0.533),#0000);
+            }
+            header .logo{
+                font-size: 3rem; 
+                font-weight:700;
+                padding:16px 16px;
+            }
+
+            .header-inner{
+                position:fixed; top:0; left:0; right:0;
+                height: 108px;
+                transition:transform .2s ease, opacity .2s ease;
+                background: #fff;
+            }
+
+            .reading .header-inner{
+                transform:translateY(-108px);
+                /* opacity:0; */
+                pointer-events:none;
+            }
+
+            /*Css for mobile navigation*/
+            .menu{
+                position:fixed; 
+                top:32px; right:32px;
+                background:none; 
+                border:0;
+                font-size: 2.4rem; 
+                cursor:pointer;
+            }
+
+            .drawer{
+                position:fixed; top:0; right:0;
+                width:200px; height:100vh;
+                background:#fff;
+                padding:60px 32px;
+
+                transform:translateX(100%);
+                transition:transform 0.3s ease;
+            }
+
+            .nav-open .drawer{
+                transform:translateX(0);
+            }
+            .drawer .close{
+                position:fixed; top:16px; right:16px;
+                background:none; 
+                border:0;
+                font:600 32px/1 system-ui;
+                cursor:pointer;
+            }
+
+            .drawer a{
+                display:block;
+                margin-bottom:20px;
+                font-size: 1.5rem; 
+                color:#000;
+                text-decoration:none;
+            }
+            /*end for Css for mobile navigation*/
+
+            /*Css for band*/
+            .band{
+                position:fixed; left:0; right:0; top:108px;   /* ←上のボタン類の下に置く */
+                height:40px;
+                font:400 24px/48px system-ui;
+                background:#cc4408;
+                border-top:1px solid #eee;
+                border-bottom:1px solid #eee;
+                display:flex; align-items:center;
+                padding:0 12px;
+                z-index:900;
+            }
+            
+            .band span{
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+                color:#fff;
+                padding: 0 16px;
+            }
+
+            .nav-open .band{
+                display:none;
+            }
+            /*end for Css for band*/
+
+            /*end for Css for header*/
+
+            /* css for body*/
+            /*Css for article page*/
+            :root{
+                --footer:48px; /*フッターの高さ*/
+            }
+            .article{
+                /* min-height:100vh; */
+                /* padding:0;  PC：下に余白を作る */
+                padding-top: 160px;
+                padding-bottom: 48px;
+                margin:0 auto;
+                width:100%;
+                max-width: 50vw;
+                transition:transform .3s ease;
+                color:#494949;
+                font-size: 1.2rem; line-height:2.5;
+            }
+
+            @media (min-width: 768px) {
+                .article{
+                    width:80vw;              
+                    /* PC：自動 */
+                }
+            }
+
+            .nav-open .article{
+                transform:translateX(-18vw) /*autoを使うときちんと動作しないので、固定値で対応*/
+            }
+
+            .footer{
+                position:fixed; left:0; right:0; bottom: 0;  
+                height:48px;
+                font:400 24px/48px system-ui;
+                background:#cc4408;
+                border-top:1px solid #eee;
+                transform:translateY(100%);
+                transition:transform .2s ease;
+                padding:0 12px;
+                z-index:1000;
+            }
+            .footer nav a{
+                margin-right:16px;
+                font:500 14px/1 system-ui;
+                color:#111;
+                text-decoration: none;
+            }
+
+            .show-footer .footer{
+                transform:translateY(0);
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--Header for article page-->
+        <header class="header">
+            <div class="header-inner">
+                <!--Logo that links to homepage-->
+                <a class="logo" href="shadedglade-home.html">木陰の庭</a>
+                <!--end for Logo-->
+
+                <!--Menu button for mobile navigation-->
+                <button class="menu">☰</button>
+                    <nav class="drawer" id="drawer">
+                        <button class="close" aria-label="close menu">✕</button>
+                        <a href="shadedglade-article_top.html">記事はこちら。</a>
+                        <a href="shadedglade-article_about.html">概要</a>
+                        <a href="shadedglade-archives.html">Archive</a>
+                        <a href="#">ポートフォリオ</a>
+                    </nav>
+                <!--end for mobile navigation-->
+
+                <!--Band for article title-->
+                <div class="band"><span>02/18/2026</span></div>
+                <!--end for band-->
+            </div>
+
+        </header>
+        <!--end for Header-->
+
+        <!--Main content for article page-->
+        <main class="article">
+            目標：<br>
+            基本ページの作成<br>
+            ポートフォリオ＝ライターページの作成<br>
+            HTMLでRedlineと現在の都市情報に関するマッピング、その分析レポート
+            <br>
+            <br>
+            その他記事アイデア：<br>
+            英語用ページ<br>
+            ハンナアーレント『人間の条件』各章分析<br>
+            Homelessness分析<br>
+            Formal Analysis: Cal Campus<br>
+            City Report
+            <br>
+            <br>
+            読書目標：<br>
+            C.アレグザンダー『パタン・ランゲージ』<br>
+            使用言語とその連なりが言葉を無限に産むため進まない。<br>
+            『白鯨』上
+            <br>
+            <br>
+            積みゲー：<br>
+            Cities Skyline<br>
+            Hollow Night silk song<br>
+            Death Stranding 2 PC ver.<br>
+            ピクセルミュージアム<br>
+            MGSシリーズ<br>
+            アサシンクリードシリーズ<br>
+            FF9,14<br>
+            Etc…
+            <br><br>
+            インターンの募集しなきゃなぁ...<br>
+
+
+
+
+        </main>
+        <!--end for Main content-->
+
+        <!--Footer content -->
+        <footer class ="footer">
+            <nav>
+                <a href="shadedglade-article_top.html">記事</a>
+                <a href="shadedglade-article_about.html">概要</a>
+                <a href="shadedglade-archives.html">Archive</a>
+                <a href="#">ポートフォリオ</a>
+            </nav>
+        </footer>
+        <!--end for Footer content -->
+        <script>
+            /*JavaScript for mobile navigation*/
+
+            /*calling elements*/
+            const btn = document.querySelector('.menu');
+            const drawer = document.getElementById('drawer');
+            const closeBtn = document.querySelector('.drawer .close');
+
+            /* scroll position variable*/
+            let last = 0;
+            /*end for calling elements*/
+
+            /*functions to open and close drawer*/
+            function openDrawer(){
+                document.body.classList.add('nav-open');
+            }
+
+            function closeDrawer(){
+                document.body.classList.remove('nav-open');
+            }
+            /*end for functions to open and close drawer*/
+
+            /*event listeners for buttons*/
+
+            btn.onclick = () => {
+                document.body.classList.contains('nav-open') ? closeDrawer() : openDrawer();
+                closeBtn.onclick = closeDrawer;
+            };
+
+            closeBtn.onclick = () => {
+                closeDrawer();
+            };
+            /*end for event listeners for buttons*/
+
+
+            /* scroll event to hide header on scroll down*/
+            window.addEventListener('scroll', ()=>{
+                const y = window.scrollY;
+
+                if (y < 20){
+                    document.body.classList.remove('reading');
+                    last = y;
+                    return;
+                }
+
+                if (y > last + 4){
+                    document.body.classList.add('reading');
+                }
+
+                if (y < last - 4){
+                    document.body.classList.remove('reading');
+                    closeDrawer();
+                }
+
+                last = y;
+            }, {passive:true});
+            /* end for JavaScript for mobile navigation*/
+
+
+            /* JavaScript to show footer on scroll to bottom*/
+            window.addEventListener('scroll', ()=>{
+                const y = window.scrollY;
+                const h = window.innerHeight;
+                const doc = document.documentElement.scrollHeight;
+
+                if (y + h >= doc - 2){
+                    document.body.classList.add('show-footer');
+                } else {
+                    document.body.classList.remove('show-footer');
+                }
+            
+            }, {passive:true});
+        </script>
+    </body>
+
+
+
+
+
+</html>
